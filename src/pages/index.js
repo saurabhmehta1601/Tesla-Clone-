@@ -1,16 +1,15 @@
 import styled from "styled-components";
 import tw from "twin.macro";
-import { Header } from "../components/Header";
+import { Section } from "../components/Section";
 
 export default function Home() {
   return (
-    <div>
-      <Header />
-      <Heading>THis is heading</Heading>
-    </div>
+    <Container>
+      <Section />
+    </Container>
   );
 }
 
-const Heading = styled.h1`
-  ${tw`text-6xl text-blue-400 font-bold text-center`}
+const Container = styled.h1`
+  ${tw`h-screen bg-gray-500`}
 `;
