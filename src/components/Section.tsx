@@ -47,17 +47,21 @@ const SubHeading = styled.h3`
   ${tw`text-2xl text-gray-600  mt-2`}
 `;
 const ButtonGroup = styled.div`
-  ${tw` flex justify-around row-gap-4 items-center mx-auto pb-12 xl:flex-row flex-col`}
+  ${tw` flex justify-center col-gap-20 row-gap-4 items-center mx-auto pb-12 xl:flex-row flex-col`}
 `;
 
 const Button = styled.button`
-  ${tw`blur opacity-95 tracking-widest  bg-white text-sm text-black font-bold py-4 px-36 rounded-full border-none uppercase cursor-pointer w-full max-w-xl`}
+  ${tw`blur bg-white text-black font-semibold rounded-full border-none uppercase cursor-pointer px-20 py-2 text-sm`}
   word-spacing: 0.3rem;
 `;
 const DarkButton = styled(Button)`
-  ${tw`bg-gray-800 text-white `}
+  ${tw`text-white `}
+  background-color: rgba(23, 26, 32, 0.8);
 `;
-const LightButton = styled(Button)``;
+const LightButton = styled(Button)`
+  background-color: rgba(244, 244, 244, 0.65);
+  color: #393c41;
+`;
 const DownArrow = styled.img`
   ${tw`w-12 h-12`}
   animation: animateDownArrow 1.5s  infinite;
