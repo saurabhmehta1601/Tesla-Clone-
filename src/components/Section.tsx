@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import tw from "twin.macro";
 import Fade from "react-reveal/Fade";
+import { useAppSelector, useAppDispatch } from "../redux/hooks";
+import { animateScroll as scroll } from "react-scroll";
 
 interface IProps {
   data: {
@@ -16,6 +18,16 @@ interface IProps {
 export const Section = ({
   data: { title, description, darkButtonTitle, lightButtonTitle, bgImage },
 }: IProps) => {
+  const { allProducts } = useAppSelector((state) => state.products);
+
+  const scrollToNextProduct = () => {
+    const nextProductIndex =
+      (allProducts.findIndex((product) => product.title === title) + 1) %
+      allProducts.length;
+    scroll.scrollTo(
+      document.getElementById(allProducts[nextProductIndex].title).offsetTop
+    );
+  };
   return (
     <Container bgImage={bgImage} id={title}>
       <Fade bottom>
@@ -31,7 +43,7 @@ export const Section = ({
             {lightButtonTitle && <LightButton>{lightButtonTitle}</LightButton>}
           </ButtonGroup>
         </Fade>
-        <DownArrow src="/images/down-arrow.svg" />
+        <DownArrow onClick={scrollToNextProduct} src="/images/down-arrow.svg" />
       </Wrapper>
     </Container>
   );
@@ -61,7 +73,7 @@ const ButtonGroup = styled.div`
 `;
 
 const Button = styled.button`
-  ${tw`blur bg-white text-black font-semibold rounded-full border-none uppercase cursor-pointer px-20 py-2 text-sm`}
+  ${tw`blur bg-white text-black font-semibold rounded-full border-none uppercase cursor-pointer px-20 py-2 text-sm `}
   word-spacing: 0.3rem;
 `;
 const DarkButton = styled(Button)`
