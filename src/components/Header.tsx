@@ -1,3 +1,4 @@
+import { Link } from "react-scroll";
 import styled from "styled-components";
 import tw from "twin.macro";
 import { useAppSelector } from "../redux/hooks";
@@ -10,11 +11,21 @@ export const Header = () => {
         <img src="/images/logo.svg" />
       </Logo>
       <ProductsMenu>
-        {allProducts
-          .filter((product) => product.type === "car")
-          .map((product) => (
-            <MenuItem>{product.title}</MenuItem>
-          ))}
+        {allProducts &&
+          allProducts
+            .filter((product) => product.type === "car")
+            .map((product) => (
+              <MenuItem>
+                <Link
+                  to={product.title}
+                  spy={true}
+                  smooth={true}
+                  duration={500}
+                >
+                  {product.title}
+                </Link>
+              </MenuItem>
+            ))}
       </ProductsMenu>
       <UserMenu>
         <MenuItem>Shop</MenuItem>

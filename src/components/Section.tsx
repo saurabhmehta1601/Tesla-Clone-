@@ -17,7 +17,7 @@ export const Section = ({
   data: { title, description, darkButtonTitle, lightButtonTitle, bgImage },
 }: IProps) => {
   return (
-    <Container bgImage={bgImage}>
+    <Container bgImage={bgImage} id={title}>
       <Fade bottom>
         <Text>
           <Heading>{title}</Heading>

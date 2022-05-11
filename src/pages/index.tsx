@@ -5,9 +5,10 @@ export default function Home() {
   const allProducts = useAppSelector((state) => state.products.allProducts);
   return (
     <>
-      {allProducts.map((product) => (
-        <Section key={product.title} data={product} />
-      ))}
+      {allProducts &&
+        allProducts.map((product) => (
+          <Section key={product.title} data={product} />
+        ))}
     </>
   );
 }
