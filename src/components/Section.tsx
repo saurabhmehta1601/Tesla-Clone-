@@ -1,21 +1,26 @@
 import React from "react";
 import styled from "styled-components";
 import tw from "twin.macro";
+import Fade from "react-reveal/Fade";
 
 export const Section = ({
   data: { title, description, darkButtonTitle, lightButtontitle, bgImage },
 }) => {
   return (
     <Container bgImage={bgImage}>
-      <Text>
-        <Heading>{title}</Heading>
-        <SubHeading>{description}</SubHeading>
-      </Text>
+      <Fade bottom>
+        <Text>
+          <Heading>{title}</Heading>
+          <SubHeading>{description}</SubHeading>
+        </Text>
+      </Fade>
       <Wrapper>
-        <ButtonGroup>
-          {darkButtonTitle && <DarkButton>{darkButtonTitle}</DarkButton>}
-          {lightButtontitle && <LightButton>{lightButtontitle}</LightButton>}
-        </ButtonGroup>
+        <Fade bottom>
+          <ButtonGroup>
+            {darkButtonTitle && <DarkButton>{darkButtonTitle}</DarkButton>}
+            {lightButtontitle && <LightButton>{lightButtontitle}</LightButton>}
+          </ButtonGroup>
+        </Fade>
         <DownArrow src="/images/down-arrow.svg" />
       </Wrapper>
     </Container>
@@ -46,7 +51,7 @@ const ButtonGroup = styled.div`
 `;
 
 const Button = styled.button`
-  ${tw`opacity-95 tracking-widest  bg-white text-sm text-black font-bold py-4 px-36 rounded-full border-none uppercase cursor-pointer w-full max-w-xl`}
+  ${tw`blur opacity-95 tracking-widest  bg-white text-sm text-black font-bold py-4 px-36 rounded-full border-none uppercase cursor-pointer w-full max-w-xl`}
   word-spacing: 0.3rem;
 `;
 const DarkButton = styled(Button)`
