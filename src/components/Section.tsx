@@ -31,7 +31,7 @@ const Wrapper = styled.div`
   ${tw`relative -bottom-12 `}
 `;
 
-const Container = styled.div`
+const Container = styled.div<{ bgImage: string }>`
   ${tw`h-screen pt-12 pb-12 flex flex-col justify-between text-center `}
   background-image: ${(props) => `url(/images/${props.bgImage})`};
   background-size: cover;
