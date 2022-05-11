@@ -4,7 +4,7 @@ import { Section } from "../components/Section";
 
 export default function Home() {
   return (
-    <Container>
+    <>
       <Section
         data={{
           title: "Model S",
@@ -68,10 +68,6 @@ export default function Home() {
           bgImage: "accessories.jpg",
         }}
       />
-    </Container>
+    </>
   );
 }
-
-const Container = styled.h1`
-  ${tw`h-screen bg-gray-500`}
-`;
