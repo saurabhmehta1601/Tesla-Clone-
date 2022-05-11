@@ -1,17 +1,20 @@
 import styled from "styled-components";
 import tw from "twin.macro";
+import { useAppSelector } from "../redux/hooks";
 
 export const Header = () => {
+  const allProducts = useAppSelector((state) => state.products.allProducts);
   return (
     <Container>
       <Logo>
         <img src="/images/logo.svg" />
       </Logo>
       <ProductsMenu>
-        <MenuItem>Model S</MenuItem>
-        <MenuItem>Model 3</MenuItem>
-        <MenuItem>Model X</MenuItem>
-        <MenuItem>Model Y</MenuItem>
+        {allProducts
+          .filter((product) => product.type === "car")
+          .map((product) => (
+            <MenuItem>{product.title}</MenuItem>
+          ))}
       </ProductsMenu>
       <UserMenu>
         <MenuItem>Shop</MenuItem>

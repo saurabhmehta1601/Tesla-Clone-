@@ -3,9 +3,19 @@ import styled from "styled-components";
 import tw from "twin.macro";
 import Fade from "react-reveal/Fade";
 
+interface IProps {
+  data: {
+    title: string;
+    description: string;
+    bgImage: string;
+    darkButtonTitle?: string;
+    lightButtonTitle?: string;
+  };
+}
+
 export const Section = ({
-  data: { title, description, darkButtonTitle, lightButtontitle, bgImage },
-}) => {
+  data: { title, description, darkButtonTitle, lightButtonTitle, bgImage },
+}: IProps) => {
   return (
     <Container bgImage={bgImage}>
       <Fade bottom>
@@ -18,7 +28,7 @@ export const Section = ({
         <Fade bottom>
           <ButtonGroup>
             {darkButtonTitle && <DarkButton>{darkButtonTitle}</DarkButton>}
-            {lightButtontitle && <LightButton>{lightButtontitle}</LightButton>}
+            {lightButtonTitle && <LightButton>{lightButtonTitle}</LightButton>}
           </ButtonGroup>
         </Fade>
         <DownArrow src="/images/down-arrow.svg" />
