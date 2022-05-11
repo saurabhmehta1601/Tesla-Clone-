@@ -7,23 +7,38 @@ export const Header = () => {
       <Logo>
         <img src="/images/logo.svg" />
       </Logo>
-      <Menu>
+      <ProductsMenu>
         <MenuItem>Model S</MenuItem>
         <MenuItem>Model 3</MenuItem>
         <MenuItem>Model X</MenuItem>
         <MenuItem>Model Y</MenuItem>
-      </Menu>
+      </ProductsMenu>
+      <UserMenu>
+        <MenuItem>Shop</MenuItem>
+        <MenuItem>Account</MenuItem>
+        <MenuItem>Menu</MenuItem>
+      </UserMenu>
     </Container>
   );
 };
 
 const Container = styled.header`
-  ${tw`flex py-6 px-8 uppercase bg-blue-600 `}
-  position: sticky;
-  position: -webkit-sticky;
+  ${tw`py-4 uppercase fixed w-screen z-10 flex`}
 `;
 const Logo = styled.a`
-  ${tw`flex-1 `}
+  ${tw`flex-1 pl-2`}
 `;
-const Menu = styled.div``;
-const MenuItem = styled.a``;
+
+const Menu = styled.div`
+  ${tw`flex-1 flex justify-center col-gap-20 items-center`}
+`;
+const ProductsMenu = styled(Menu)`
+  ${tw`flex-auto `}
+`;
+
+const UserMenu = styled(Menu)`
+  ${tw`flex-1 col-gap-10`}
+`;
+const MenuItem = styled.a`
+  ${tw`font-bold text-sm cursor-pointer`}
+`;

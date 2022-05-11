@@ -41,7 +41,7 @@ const Container = styled.div`
 
 const Text = styled.div``;
 const Heading = styled.h1`
-  ${tw`text-6xl font-bold text-gray-800 m-0 `}
+  ${tw`text-6xl font-bold text-gray-800 m-0 pt-8 `}
 `;
 const SubHeading = styled.h3`
   ${tw`text-2xl text-gray-600  mt-2`}
