@@ -3,6 +3,7 @@ import styled from "styled-components";
 import tw from "twin.macro";
 import { openSidebar } from "../redux/features/uiSlice";
 import { useAppDispatch, useAppSelector } from "../redux/hooks";
+import Image from "next/image";
 
 export const Header = () => {
   const dispatch = useAppDispatch();
@@ -14,14 +15,14 @@ export const Header = () => {
   return (
     <Container>
       <Logo>
-        <img src="/images/logo.svg" />
+        <Image width={140} height={30} alt="site logo" src="/images/logo.svg" />
       </Logo>
       <ProductsMenu>
         {allProducts &&
           allProducts
             .filter((product) => product.type === "car")
             .map((product) => (
-              <MenuItem>
+              <MenuItem key={product.title}>
                 <Link
                   to={product.title}
                   spy={true}
