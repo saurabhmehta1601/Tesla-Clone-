@@ -4,6 +4,7 @@ import tw from "twin.macro";
 import Fade from "react-reveal/Fade";
 import { useAppSelector, useAppDispatch } from "../redux/hooks";
 import { animateScroll as scroll } from "react-scroll";
+import Image from "next/image";
 
 interface IProps {
   data: {
@@ -43,7 +44,12 @@ export const Section = ({
             {lightButtonTitle && <LightButton>{lightButtonTitle}</LightButton>}
           </ButtonGroup>
         </Fade>
-        <DownArrow onClick={scrollToNextProduct} src="/images/down-arrow.svg" />
+        <DownArrow
+          width={60}
+          height={80}
+          onClick={scrollToNextProduct}
+          src="/images/down-arrow.svg"
+        />
       </Wrapper>
     </Container>
   );
@@ -85,7 +91,7 @@ const LightButton = styled(Button)`
   background-color: rgba(244, 244, 244, 0.65);
   color: #393c41;
 `;
-const DownArrow = styled.img`
-  ${tw`w-12 h-12`}
+const DownArrow = styled(Image)`
+  ${tw`w-12 h-12 cursor-pointer`}
   animation: animateDownArrow 1.5s  infinite;
 `;
